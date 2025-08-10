@@ -9,8 +9,8 @@
 
 <svelte:head>
 	<link rel="icon" href="/icarus_logo.png" />
-	<title>Scythe - Merit-Based Work Economy</title>
-	<meta name="description" content="Educational platform combining digital wallet, marketplace, and governance for merit-based work economy." />
+	<title>Scythe - Work-Based Economy</title>
+	<meta name="description" content="Educational platform combining digital wallet, marketplace, and governance for work-based economy." />
 </svelte:head>
 
 {@render children?.()}

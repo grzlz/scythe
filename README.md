@@ -1,4 +1,4 @@
-# Scythe - Merit-Based Work Economy Platform
+# Scythe - Work-Based Economy Platform
 
 A digital wallet application with integrated marketplace and self-governance, designed for educational institutions teaching software development. Scythe creates a work-based economy where students learn, earn, and participate in democratic decision-making.
 
@@ -6,19 +6,19 @@ A digital wallet application with integrated marketplace and self-governance, de
 
 Scythe is an **educational economic platform** that combines learning, working, and governing in a single ecosystem:
 
-- **💰 Digital Wallet** - Manage and transfer Scythes (work-based currency)
-- **🛒 Productivity Market** - Trade productive force and currency itself  
-- **🏛️ Self-Governance** - Vote on platform rules, features, and policies
+- **💰 Digital Wallet** - Manage and transfer Scythes (work-unit currency)
+- **🛒 Productivity Market** - Trade actual development work and currency
+- **🏛️ Self-Governance** - Democratic voting on platform rules and policies
 - **🎓 Guild System** - Skill progression from Apprentice → Journeyman → Master
 
 ## How It Works
 
 ### The Currency: Scythes
-**Scythes function like story points in Scrum** - they represent work units, not speculative value.
+**Scythes function like story points in Scrum** - they represent actual work units with real economic value.
 
-- **Initial Distribution:** Giveaways for early users
-- **Ongoing Supply:** Minted through completed development work
-- **Value:** Determined by actual productivity, not speculation
+- **Initial Distribution:** Giveaways for early users and new members
+- **Ongoing Supply:** Minted only through verified completed development work  
+- **Value:** Tied directly to productive output, not market speculation
 
 ### Guild-Based Skill System
 Students progress through verified skill levels:
@@ -30,12 +30,13 @@ Students progress through verified skill levels:
 **Up or Out Structure:** Consistent performance required to maintain guild level.
 
 ### The Market
-Trade two primary assets:
+Trade in a work-driven economy:
 
-1. **Productive Force** - Actual development work (tickets, features, bugs)
-2. **Scythes Themselves** - Currency trading based on productivity demand
+1. **Development Work** - Tickets, features, and bug fixes priced by complexity and skill level
+2. **Scythes Trading** - Currency exchange based on actual work demand and supply
+3. **Skill-Based Pricing** - Different Scythe costs based on guild level (Apprentice pays more, Master pays less)
 
-*Future:* Physical merchandise purchasable with Scythes
+*Future:* Physical merchandise and services purchasable with earned Scythes
 
 ### Governance System
 Complete self-governance through democratic voting:
@@ -102,6 +103,8 @@ npm run preview
 
 ## Vision
 
-Scythe demonstrates that **merit-based economies** can function at scale while maintaining democratic governance. By tying currency to actual productive work and skill progression, we create sustainable economic incentives aligned with real value creation.
+Scythe demonstrates that **work-based economies** can function at scale while maintaining democratic governance. By tying currency directly to completed development work and verified skill progression, we create sustainable economic incentives aligned with actual value creation rather than speculation.
 
-The platform serves as both an educational tool and a working economic model - students learn software development while participating in a functioning work-based economy with real consequences and rewards.
+The platform serves as both an educational tool and a functioning economic model - students learn software development while participating in a real work-based economy where their skills and productivity have tangible economic consequences and rewards.
+
+This model could scale beyond individual institutions, creating a network where verified work and skills translate into real economic value across multiple educational and development communities.
