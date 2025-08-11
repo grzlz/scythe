@@ -10,11 +10,11 @@
 <svelte:head>
 	<link rel="icon" href="/favicon.png" />
 	<title>Scythe</title>
-	<meta name="description" content="Plataforma educativa que combina billetera digital, mercado y gobernanza para economía basada en trabajo." />
+	<meta name="description" content="Ecosistema de producción de software." />
 </svelte:head>
 
 <!-- Navbar -->
-<nav class="flex justify-between items-center p-2 fixed top-0 left-0 right-0 z-10 backdrop-blur-md">
+<nav class="flex justify-between items-center p-2 fixed top-0 left-0 right-0 z-10 backdrop-blur-xs">
 	<!-- Logo - Left -->
 	<div class="flex items-center relative gap-1 top-0.5">
 		<img src="/logo.png" alt="Scythe" class="h-5 w-auto" />
