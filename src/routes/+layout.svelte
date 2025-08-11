@@ -14,7 +14,7 @@
 </svelte:head>
 
 <!-- Navbar -->
-<nav class="flex justify-between items-center p-2 fixed top-0 left-0 right-0 z-10  bg-opacity-80">
+<nav class="flex justify-between items-center p-2 fixed top-0 left-0 right-0 z-10 backdrop-blur-md">
 	<!-- Logo - Left -->
 	<div class="flex items-center relative gap-1 top-0.5">
 		<img src="/logo.png" alt="Scythe" class="h-5 w-auto" />
