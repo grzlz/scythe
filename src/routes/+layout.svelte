@@ -16,7 +16,7 @@
 <!-- Navbar -->
 <nav class="flex justify-between items-center p-4 absolute top-0 left-3 right-0 z-10">
 	<!-- Logo - Left -->
-	<div>
+	<div class="flex items-center gap-2">
 		<img src="/logo.png" alt="Scythe" class="w-16 h-auto" />
 		<span class="text-white font-bold text-lg font-primary">SCYTHE</span>
 	</div>
