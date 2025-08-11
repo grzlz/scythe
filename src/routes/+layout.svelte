@@ -18,6 +18,7 @@
 	<!-- Logo - Left -->
 	<div>
 		<img src="/logo.png" alt="Scythe" class="w-16 h-auto" />
+		<span class="text-white font-bold text-lg font-primary">SCYTHE</span>
 	</div>
 	
 	<!-- Right Icons Group -->
