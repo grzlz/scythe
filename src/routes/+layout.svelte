@@ -14,11 +14,11 @@
 </svelte:head>
 
 <!-- Navbar -->
-<nav class="flex justify-between items-center p-4 absolute top-0 left-3 right-0 z-10">
+<nav class="flex justify-between items-center p-2 absolute top-0 left-1.5 right-0 z-10">
 	<!-- Logo - Left -->
-	<div class="flex items-center gap-2.5 relative p-1">
-		<img src="/logo.png" alt="Scythe" class="h-7 w-auto" />
-		<span class="text-white font-primary relative top-1" style="font-size: 28px; line-height: 28px;">Scythe</span>
+	<div class="flex items-center relative gap-1 ">
+		<img src="/logo.png" alt="Scythe" class="h-5 w-auto" />
+		<span class="text-white font-primary relative top-0.5" style="font-size: 20px; line-height: 20px;">SCYTHE</span>
 	</div>
 	
 	<!-- Right Icons Group -->
