@@ -9,7 +9,7 @@
 
 <svelte:head>
 	<link rel="icon" href="/favicon.png" />
-	<title>Scythe - Economía Basada en Trabajo</title>
+	<title>Scythe</title>
 	<meta name="description" content="Plataforma educativa que combina billetera digital, mercado y gobernanza para economía basada en trabajo." />
 </svelte:head>
 
@@ -17,8 +17,8 @@
 <nav class="flex justify-between items-center p-4 absolute top-0 left-3 right-0 z-10">
 	<!-- Logo - Left -->
 	<div class="flex items-center gap-2.5 relative p-1">
-		<img src="/logo.png" alt="Scythe" class="h-8 w-auto" />
-		<span class="text-white  text-xl font-primary relative top-1.75">SCYTHE</span>
+		<img src="/logo.png" alt="Scythe" class="h-7 w-auto" />
+		<span class="text-white font-primary relative top-1" style="font-size: 28px; line-height: 28px;">Scythe</span>
 	</div>
 	
 	<!-- Right Icons Group -->
