@@ -22,7 +22,7 @@
   }
 </script>
 
-<div class="min-h-screen flex items-center justify-between bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-700 p-3 font-primary">
+<div class="min-h-screen flex items-center justify-between bg-gradient-to-br from-secondary-900 to-secondary-800 p-3 font-primary">
   <div class="w-full max-w-md flex flex-col items-center">
     <!-- Hero Text -->
     <div class=" p-6 mb-12">
