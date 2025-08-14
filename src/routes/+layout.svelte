@@ -17,8 +17,8 @@
 <nav class="flex justify-between items-center px-3 py-1 fixed top-0 left-1 right-0 z-10 backdrop-blur-xs">
 	<!-- Logo - Left -->
 	<div class="flex items-center relative">
-		<img src="/logo.png" alt="Scythe" class="h-6 w-auto" />
-		<span class="text-white font-primary relative top-1" style="font-size: 18px; line-height: 24px;">SCYTHE</span>
+		<img src="/logo.png" alt="Scythe" class="h-7 w-auto" />
+		<span class="text-white font-primary relative top-1.25" style="font-size: 21px; line-height: 24px;">Scythe</span>
 	</div>
 	
 	<!-- Right Icons Group -->
