@@ -19,7 +19,7 @@
 		<span class="text-white font-primary text-xl">Scythe</span>
 	</div>
 	
-	<div class="flex items-center gap-4 mt-1 mr-1">
+	<div class="flex items-center gap-4 mr-1">
 		<!-- Help Icon -->
 		<button class="text-white">
 			?
