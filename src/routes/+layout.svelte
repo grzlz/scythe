@@ -10,25 +10,22 @@
 <svelte:head>
 	<link rel="icon" href="/favicon.png" />
 	<title>Scythe</title>
-	<meta name="description" content="Ecosistema de producción de software." />
+	<meta name="description" content="Producir sin capital." />
 </svelte:head>
 
-<!-- Navbar -->
 <nav class="flex justify-between items-center px-3 py-1 fixed top-0 left-1 right-0 z-10 backdrop-blur-xs">
-	<!-- Logo - Left -->
-	<div class="flex items-center relative">
-		<img src="/logo.png" alt="Scythe" class="h-7 w-auto" />
-		<span class="text-white font-primary relative top-1.25" style="font-size: 21px; line-height: 24px;">Scythe</span>
+	<div class="flex items-center">
+		<img src="/logo.png" alt="Scythe" class="h-9.5 w-auto" />
+		<span class="text-white font-primary text-xl">Scythe</span>
 	</div>
 	
-	<!-- Right Icons Group -->
 	<div class="flex items-center gap-4 mt-1 mr-1">
 		<!-- Help Icon -->
 		<button class="text-white">
 			?
 		</button>
 		
-		<!-- Hamburger Menu -->
+		<!-- svelte-ignore a11y_consider_explicit_label -->
 		<button class="text-white">
 			<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
