@@ -22,19 +22,20 @@
   }
 </script>
 
-<div class="min-h-screen flex items-center justify-between bg-gradient-to-br from-secondary-900 to-secondary-800 p-3 font-primary">
-  <div class="w-full max-w-md flex flex-col items-center">
+<div class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-secondary-900 to-secondary-800 p-6 font-primary">
+  <div class="max-w-lg text-left space-y-16">
     <!-- Hero Text -->
-    <div class=" p-6 mb-12">
-      <h1 class="text-5xl font-light text-white/95 tracking-wide">
-        Acceso temprano a<br>nuestro ecosistema
+    <div>
+      <h1 class="text-5xl font-light text-white/95 tracking-wide leading-tight">
+        Acceso temprano a Scythe
       </h1>
     </div>
+    
     <!-- Enter Button -->
-    <div class="text-center">
+    <div>
       <button
         onclick={() => goto('/auth/login')}
-        class="px-4 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-light text-lg backdrop-blur-xl border border-white/10 transition-all duration-300 hover:border-white/20 hover:shadow-lg"
+        class="px-6 py-2 bg-white/5 hover:bg-white/10 text-white font-medium text-lg rounded-md border border-white/30 hover:border-white/50 backdrop-blur-sm transition-all duration-300"
       >
         Entrar
       </button>
