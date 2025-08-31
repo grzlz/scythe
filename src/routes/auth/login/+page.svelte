@@ -1,66 +1,91 @@
 <script>
-  import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
   
-  let email = $state('');
-  let isLoading = $state(false);
-  let message = $state('');
+  let timeLeft = $state({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+  
+  let targetDate = $state(null);
+  let intervalId = $state(null);
 
-  async function handleLogin() {
-    if (!email) return;
+  onMount(() => {
+    targetDate = new Date('2025-09-22T00:00:00');
     
-    isLoading = true;
-    message = '';
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+      
+      if (distance > 0) {
+        timeLeft = {
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        };
+      } else {
+        timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+        if (intervalId) clearInterval(intervalId);
+      }
+    };
     
-    try {
-      // TODO: Implement Supabase magic link auth
-      message = '¡Enlace mágico enviado! Revisa tu email.';
-    } catch (error) {
-      message = error.message;
-    } finally {
-      isLoading = false;
-    }
-  }
+    updateCountdown();
+    intervalId = setInterval(updateCountdown, 1000);
+    
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  });
 </script>
 
-<div class="min-h-screen flex items-center justify-between bg-gradient-to-br from-secondary-900 to-secondary-800 p-3 font-primary">
-  <div class="w-full max-w-md flex flex-col items-center">
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-800 p-6 font-primary">
+  <div class="text-center space-y-12">
     <!-- Hero Text -->
-    <div class=" p-6 mb-12">
-      <h1 class="text-5xl font-light text-white/95 tracking-wide">
-        Acceso temprano a<br>nuestro ecosistema
+    <div class="space-y-4">
+      <h1 class="text-5xl font-light text-white/95 tracking-wide leading-tight">
+        El lanzamiento se acerca
       </h1>
-    </div>
-    <!-- Enter Button -->
-    <div class="text-center">
-      <button
-        onclick={() => goto('/auth/login')}
-        class="px-4 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-light text-lg backdrop-blur-xl border border-white/10 transition-all duration-300 hover:border-white/20 hover:shadow-lg"
-      >
-        Entrar
-      </button>
-    </div>
-
-    <!-- Message Display -->
-    {#if message}
-      <div class="mt-6 p-4 rounded-xl bg-primary-500/10 border border-primary-400/20 backdrop-blur-xl">
-        <p class="text-primary-200 text-sm text-center font-light">{message}</p>
-      </div>
-    {/if}
-
-    <!-- Footer -->
-    <div class="mt-10 text-center">
-      <p class="text-white/40 text-sm font-light">
-        ¿Nuevo aquí? 
-        <a href="/auth/register" class="text-white/70 hover:text-white/90 transition-all duration-300 font-normal ml-1">
-          Solicitar acceso
-        </a>
+      <p class="text-white/60 text-lg font-light">
+        Scythe estará disponible pronto
       </p>
     </div>
 
-    <!-- Additional Info -->
-    <div class="mt-8 text-center">
-      <a href="/about" class="text-white/30 hover:text-white/50 transition-all duration-300 text-xs font-light tracking-wide">
-        Saber más →
+    <!-- Countdown Display -->
+    <div class="grid grid-cols-4 gap-6 max-w-2xl mx-auto">
+      <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:bg-white/10 transition-all duration-300">
+        <div class="text-4xl font-light text-white/95 mb-2">{String(timeLeft.days).padStart(2, '0')}</div>
+        <div class="text-white/60 text-sm font-light tracking-wide">DÍAS</div>
+      </div>
+      
+      <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:bg-white/10 transition-all duration-300">
+        <div class="text-4xl font-light text-white/95 mb-2">{String(timeLeft.hours).padStart(2, '0')}</div>
+        <div class="text-white/60 text-sm font-light tracking-wide">HORAS</div>
+      </div>
+      
+      <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:bg-white/10 transition-all duration-300">
+        <div class="text-4xl font-light text-white/95 mb-2">{String(timeLeft.minutes).padStart(2, '0')}</div>
+        <div class="text-white/60 text-sm font-light tracking-wide">MINUTOS</div>
+      </div>
+      
+      <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:bg-white/10 transition-all duration-300">
+        <div class="text-4xl font-light text-white/95 mb-2">{String(timeLeft.seconds).padStart(2, '0')}</div>
+        <div class="text-white/60 text-sm font-light tracking-wide">SEGUNDOS</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="space-y-6">
+      <p class="text-white/40 text-sm font-light">
+        Mientras tanto, puedes 
+        <a href="https://blog.scythe.mx" target="_blank" class="text-white/70 hover:text-white/90 transition-all duration-300 font-normal">
+          conocer más sobre Scythe
+        </a>
+      </p>
+      
+      <a href="/" class="inline-block text-white/30 hover:text-white/50 transition-all duration-300 text-xs font-light tracking-wide">
+        ← Volver al inicio
       </a>
     </div>
   </div>

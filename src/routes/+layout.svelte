@@ -15,13 +15,13 @@
 
 <nav class="flex justify-between items-center px-3 py-1 fixed top-0 left-1 right-0 z-10 backdrop-blur-xs">
 	<div class="flex items-center">
-		<img src="/logo_rojo.png" alt="Scythe" class="h-9.5 w-auto" />
+		<img src="/logo.png" alt="Scythe" class="h-9.5 w-auto" />
 		<span class="text-white font-primary text-xl">Scythe</span>
 	</div>
 	
 	<div class="flex items-center gap-4 mr-1">
 		<!-- Help Icon -->
-		<button class="text-white">
+		<button class="text-white">	
 			?
 		</button>
 		
