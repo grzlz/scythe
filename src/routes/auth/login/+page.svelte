@@ -40,7 +40,7 @@
   });
 </script>
 
-<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-800 p-6 font-primary">
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br  from-secondary-900 to-secondary-800  p-6 font-primary">
   <div class="text-center space-y-12">
     <!-- Hero Text -->
     <div class="space-y-4">
