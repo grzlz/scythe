@@ -48,21 +48,5 @@
       </div>
     {/if}
 
-    <!-- Footer -->
-    <div class="mt-10 text-center">
-      <p class="text-white/40 text-sm font-light">
-        ¿Nuevo aquí? 
-        <a href="/auth/register" class="text-white/70 hover:text-white/90 transition-all duration-300 font-normal ml-1">
-          Solicitar acceso
-        </a>
-      </p>
-    </div>
-
-    <!-- Additional Info -->
-    <div class="mt-8 text-center">
-      <a href="/about" class="text-white/30 hover:text-white/50 transition-all duration-300 text-xs font-light tracking-wide">
-        Saber más →
-      </a>
-    </div>
   </div>
 </div>
