@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { supabase } from '$lib/supabaseClient.js';
-  import { connectWallet, isWalletAvailable } from '$lib/web3Auth.js';
+  import { connectWallet, isWalletAvailable, signMessage } from '$lib/web3Auth.js';
 
   let connectionStatus = $state('testing...');
   let walletAddress = $state(null);
@@ -41,16 +41,30 @@
 
   async function authenticateWithSupabase(address) {
     try {
-      const { data, error } = await supabase.auth.signInWithWeb3({
-        chain: 'ethereum',
-        statement: 'I accept the Terms of Service for Scythe and authorize this wallet connection.'
-      });
+      const message = `Sign this message to authenticate with Scythe.\n\nWallet: ${address}\nTimestamp: ${Date.now()}`;
+
+      const { signature } = await signMessage(message);
+
+      const { data, error } = await supabase.auth.signInAnonymously();
 
       if (error) {
         throw error;
       }
 
+      const { error: updateError } = await supabase.auth.updateUser({
+        data: {
+          wallet_address: address,
+          signature: signature,
+          signed_message: message
+        }
+      });
+
+      if (updateError) {
+        throw updateError;
+      }
+
       console.log('Authenticated with Supabase:', data);
+      alert('Successfully authenticated with Web3 wallet!');
     } catch (error) {
       console.error('Supabase auth error:', error);
       throw new Error(`Authentication failed: ${String(error)}`);
