@@ -59,17 +59,19 @@
   }
 </script>
 
-<div class="min-h-screen bg-gradient-to-br from-secondary-900 to-secondary-800 p-6 font-primary">
+<div class="min-h-screen bg-gradient-to-br from-secondary-900 to-secondary-800 p-3 sm:p-6 font-primary">
   <div class="max-w-4xl mx-auto space-y-8">
 
     <!-- Header -->
-    <div class="flex justify-between items-center gap-4">
-      <h1 class="text-2xl md:text-4xl font-light text-white/95 tracking-wide truncate">
-        Scythe Dashboard
-      </h1>
+    <div class="flex justify-between items-center gap-2">
+      <div class="min-w-0 flex-1 overflow-hidden">
+        <h1 class="text-lg font-light text-white/95 tracking-wide truncate">
+          Scythe
+        </h1>
+      </div>
       <button
         onclick={logout}
-        class="bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-xl border border-white/10 px-4 py-2 text-white/90 font-light transition-all duration-300 whitespace-nowrap"
+        class="bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-lg border border-white/10 px-3 py-1.5 text-white/90 font-light transition-all duration-300 whitespace-nowrap text-sm flex-shrink-0"
       >
         Logout
       </button>
