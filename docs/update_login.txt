@@ -1,0 +1,107 @@
+# Login System Migration Plan: Wallet → Email Authentication
+
+## Current Implementation (Anonymous Auth)
+- Uses `supabase.auth.signInAnonymously()`
+- Stores wallet data in user metadata
+- Requires wallet signature every login
+- Poor mobile UX
+
+## Target Implementation (Email + Wallet Hybrid)
+
+### Flow Design
+1. **First Time Registration:**
+   - Connect MetaMask wallet
+   - Sign verification message
+   - Generate deterministic email: `wallet_${walletAddress.toLowerCase()}@scythe.app`
+   - Create password from signature hash
+   - Create Supabase email account with wallet metadata
+
+2. **Sequential Logins:**
+   - Standard email/password login
+   - No wallet required for session creation
+   - Faster, mobile-friendly experience
+
+3. **Wallet Operations (when needed):**
+   - Token transfers, balance checks, etc.
+   - Re-connect wallet only for actual transactions
+   - Verify wallet still matches account
+
+### Implementation Steps
+
+#### Phase 1: Dual Support
+- Keep current anonymous auth working
+- Add email auth as optional upgrade path
+- Allow users to "upgrade" their anonymous account
+
+#### Phase 2: Migration Logic
+```javascript
+// Check if user has anonymous account
+const { data: session } = await supabase.auth.getSession();
+if (session.user.is_anonymous) {
+  // Offer upgrade to email auth
+  showUpgradePrompt();
+}
+
+// Upgrade flow
+async function upgradeToEmailAuth(walletAddress, signature) {
+  const email = `wallet_${walletAddress.toLowerCase()}@scythe.app`;
+  const password = hashSignature(signature); // deterministic password
+
+  await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        wallet_address: walletAddress,
+        upgraded_from_anonymous: true,
+        original_anon_id: session.user.id
+      }
+    }
+  });
+}
+```
+
+#### Phase 3: Full Migration
+- Migrate all anonymous users to email accounts
+- Remove anonymous auth support
+- Update login flow to email-first
+
+### File Changes Required
+
+#### New Files:
+- `src/lib/authUpgrade.js` - Migration utilities
+- `src/routes/auth/upgrade/+page.svelte` - Upgrade flow page
+
+#### Modified Files:
+- `src/routes/auth/login/+page.svelte` - Add email login option
+- `src/lib/web3Auth.js` - Add wallet re-connection utilities
+- `src/routes/dashboard/+page.svelte` - Show upgrade prompt for anonymous users
+
+### Security Considerations
+- Deterministic emails prevent duplicate accounts
+- Password derived from signature ensures only wallet owner can access
+- Wallet verification required for sensitive operations
+- Session management remains secure
+
+### UX Improvements
+- Fast email login for returning users
+- Wallet only needed for actual Web3 operations
+- Better mobile compatibility
+- Progressive Web3 onboarding
+
+### Rollback Plan
+- Keep anonymous auth tables for 30 days
+- Feature flag to revert to anonymous auth
+- User data export before migration
+
+## Timeline
+- Phase 1: 1-2 days (dual support)
+- Phase 2: 2-3 days (migration logic)
+- Phase 3: 1 day (cleanup)
+- Total: ~1 week
+
+## Success Metrics
+- Faster login times (< 2 seconds vs current ~10 seconds)
+- Higher mobile conversion rates
+- Reduced wallet connection errors
+- Same security level maintained

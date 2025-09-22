@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { supabase } from '$lib/supabaseClient.js';
   import { connectWallet, isWalletAvailable, signMessage } from '$lib/web3Auth.js';
+  import { goto } from '$app/navigation';
 
   let connectionStatus = $state('testing...');
   let walletAddress = $state(null);
@@ -64,7 +65,9 @@
       }
 
       console.log('Authenticated with Supabase:', data);
-      alert('Successfully authenticated with Web3 wallet!');
+
+      // Redirect to dashboard after successful authentication
+      goto('/dashboard');
     } catch (error) {
       console.error('Supabase auth error:', error);
       throw new Error(`Authentication failed: ${String(error)}`);
@@ -98,7 +101,7 @@
               disabled={isConnecting}
               class="bg-white/10 hover:bg-white/20 disabled:bg-white/5 disabled:opacity-50 backdrop-blur-xl rounded-xl border border-white/10 px-6 py-3 text-white/90 font-light transition-all duration-300 disabled:cursor-not-allowed"
             >
-              {isConnecting ? 'Connecting...' : 'Connect Uniswap Wallet'}
+              {isConnecting ? 'Connecting...' : 'Connect MetaMask'}
             </button>
           {:else}
             <div class="space-y-2">
@@ -111,7 +114,7 @@
         </div>
       {:else}
         <p class="text-orange-400 font-light">
-          Please install Uniswap wallet or compatible Web3 wallet
+          Please install MetaMask or use MetaMask mobile browser
         </p>
       {/if}
     </div>

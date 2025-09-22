@@ -1,6 +1,6 @@
 export async function connectWallet() {
   if (!window.ethereum) {
-    throw new Error('Uniswap wallet or compatible wallet not found');
+    throw new Error('MetaMask or compatible wallet not found');
   }
 
   try {
@@ -16,7 +16,7 @@ export async function connectWallet() {
 
 export async function signMessage(message) {
   if (!window.ethereum) {
-    throw new Error('Uniswap wallet or compatible wallet not found');
+    throw new Error('MetaMask or compatible wallet not found');
   }
 
   try {
